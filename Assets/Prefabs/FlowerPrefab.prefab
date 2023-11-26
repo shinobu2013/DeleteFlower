@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterPrefab: {fileID: 8487800808004085453, guid: 693190d67415fd24aab2e3f217d3a8f4, type: 3}
+  ScoreCount: {fileID: 4656383545575358949, guid: e1e4be803f275864e8889fa7bf79647a, type: 3}
+  StartButton: {fileID: 3480232656126429647, guid: 013ff70f80ec1e744a98a8d002706d0b, type: 3}
+  RestartButton: {fileID: 3596286379699406579, guid: 313a5b6d34238054ab8aa05cdf2125a9, type: 3}
   openImage: {fileID: 21300000, guid: ccd650e143fcd3e4582f8ab0463de357, type: 3}
   closeImage: {fileID: 21300000, guid: a840121ed6116984186cd768ba49307b, type: 3}
 --- !u!61 &957424464729307269

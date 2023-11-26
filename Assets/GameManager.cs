@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject flowerPrefab;
-    [SerializeField] GameObject ScoreLabel, ScoreCount, TimeLabel1, TimeLabel2, TimeCount;
-    [SerializeField] GameObject StartButton, RestartButton;
+    public GameObject ScoreLabel, ScoreCount, TimeLabel1, TimeLabel2, TimeCount;
+    public GameObject StartButton, RestartButton;
     public int FlowerCount = 100;
     public int MaxRetryCount = 50;
     public float flowerWidth = 1.0f; // 97.0f
@@ -79,7 +79,10 @@ public class GameManager : MonoBehaviour
         StartButton.SetActive(false);
         RestartButton.SetActive(true);
     }
-
+    public bool isStartedGame()
+    {
+        return isStarted;
+    }
     void SetVisibleStatus(bool isOn)
     {
         ScoreLabel.SetActive(isOn);
@@ -104,6 +107,9 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < FlowerCount; ++i)
         {
             GameObject flower = Instantiate(flowerPrefab);
+            Flower obj = flower.GetComponent<Flower>();
+            obj.gameManager = this;
+            obj.ScoreCount = ScoreCount;
             // Vector3 originalPos = flower.transform.position;
             Vector3 originalPos = new Vector3(0f, 0f, 0f);
             int retryCount = 0;

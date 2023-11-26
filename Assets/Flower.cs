@@ -7,7 +7,8 @@ public class Flower : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject waterPrefab;
-    [SerializeField] GameObject ScoreCount, StartButton, RestartButton;
+    public GameObject ScoreCount;
+    public GameManager gameManager;
     public Sprite openImage, closeImage;
     bool isClosed = false;
     void Start()
@@ -25,7 +26,7 @@ public class Flower : MonoBehaviour
 
     public void OnTapped()
     {
-        if( !isStartedGame() ) return;
+        if (!isStartedGame()) return;
         if (!isClosed)
         {
             isClosed = true;
@@ -34,16 +35,14 @@ public class Flower : MonoBehaviour
 
             GameObject water = Instantiate(waterPrefab);
             Transform tf = GetComponent<Transform>();
-            water.transform.SetParent( tf, false );
+            water.transform.SetParent(tf, false);
             AddPoint();
         }
     }
 
     bool isStartedGame()
     {
-        if( StartButton.activeSelf ) return false;
-        if( RestartButton.activeSelf ) return false;
-        return true;
+        return gameManager.isStartedGame();
     }
 
     void AddPoint()
