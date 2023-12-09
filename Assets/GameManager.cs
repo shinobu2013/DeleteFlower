@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject flowerPrefab;
     public GameObject ScoreLabel, ScoreCount, TimeLabel1, TimeLabel2, TimeCount;
     public GameObject StartButton, RestartButton;
+    public GameObject setumei;
     public int FlowerCount = 100;
     public int MaxRetryCount = 50;
     public float flowerWidth = 1.0f; // 97.0f
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     public void OnStartButton()
     {
+        setumei.SetActive(false); // 説明テキストを見えなくするプログラムです。
         StartGame();
     }
     public void OnRestartButton()
